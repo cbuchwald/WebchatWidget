@@ -1,4 +1,4 @@
-name: Automatic Release
+name: Automatic Draft Release
 
 on: 
   push: 
@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 jobs: 
-  relesae: 
+  create-draft-release: 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
