@@ -18,26 +18,20 @@ jobs:
           node-version: '16'
 
       - name: Build
-        run: npm ci && npm run webchat
+        run: npm ci && npm run build
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }} - EDIT ME
-          draft: true
-          prerelease: false
+          files: dist/*.js
+          body: |
+            ### Potentially breaking changes
 
-      - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/webchat.js
-          asset_name: webchat.js
-          asset_content_type: application/javascript
+            ### New Features
+
+            ### Bug Fixes
+
+            ### Improvements
+            
+
          
