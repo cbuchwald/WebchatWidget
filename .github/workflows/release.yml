@@ -12,10 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Bulid
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+
+      - name: Build
         run: npm ci && npm run webchat
 
       - name: Create Release
