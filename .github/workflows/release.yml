@@ -9,14 +9,14 @@ jobs:
   relesae: 
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Bulid
-      - id: build
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+        uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - run: npm ci
-      - run: npm run webchat
+        run: npm ci && npm run webchat
 
       - name: Create Release
         id: create_release
@@ -30,7 +30,6 @@ jobs:
           prerelease: false
 
       - name: Upload Release Assets
-        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
