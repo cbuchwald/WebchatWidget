@@ -23,7 +23,11 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/*.js
+          draft: true
+          files: |
+            dist/*.js
+            dist/*.gz
+            dist/*.br
           body: |
             ### Potentially breaking changes
 
@@ -32,6 +36,6 @@ jobs:
             ### Bug Fixes
 
             ### Improvements
-            
+
 
          
