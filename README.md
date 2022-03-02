@@ -15,7 +15,7 @@ It is divided into multiple sub-projects
 - `webchat-ui` contains the source code used to render the webchat and webchat-plugins via `react`
 - `webchat` makes use of `webchat-ui` and adds the socket connection as well as state management to it. It can be used within react applications for seamless integration
 - `webchat-embed` takes the `webchat` and renders it into a website without further manual integration into an existing react application
-- `plugins` contains builtin webchat-plugins that can be understood as a basic featureset.
+- `plugins` contains builtin webchat-plugins that can be understood as a basic featureset. 
 
 ## Building the Webchat
 To build the webchat, you will need an installed version of `Node.js`.
